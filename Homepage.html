@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Homepage</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f5;
+            margin: 20px;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        /* Profile photo on top-right */
+        img {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid black;
+            object-fit: cover;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #dddddd;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 6px 12px;
+        }
+
+        .output {
+            margin-top: 10px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <!-- Your Photo -->
+    <img src="Face.jpg" alt="My Photo">
+
+    <h1>Welcome to My Homepage</h1>
+
+    <!-- Personal Information -->
+    <h2>Personal Information</h2>
+    <p><b>Name:</b> Kallol Porel</p>
+    <p><b>Email:</b> erakallol@gmail.com</p>
+
+    <!-- Academic Records -->
+    <h2>Academic Records (Internal Marks)</h2>
+
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+
+        <tr>
+            <td>English</td>
+            <td><input type="number" id="eng"></td>
+        </tr>
+
+        <tr>
+            <td>Mathematics</td>
+            <td><input type="number" id="math"></td>
+        </tr>
+
+        <tr>
+            <td>Computer Science</td>
+            <td><input type="number" id="cs"></td>
+        </tr>
+
+        <tr>
+            <td>Electrical Science</td>
+            <td><input type="number" id="es"></td>
+        </tr>
+    </table>
+
+    <!-- Buttons -->
+    <button onclick="showMarks()">Submit Marks</button>
+    <button onclick="calculatePercentage()">Calculate Percentage</button>
+
+    <!-- Output Area -->
+    <div id="marks" class="output"></div>
+    <div id="percent" class="output"></div>
+
+    <!-- Favourite Websites -->
+    <h2>Favourite Websites</h2>
+    <ul>
+        <li><a href="https://github.com" target="_blank">GitHub</a></li>
+        <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+        <li><a href="https://www.geeksforgeeks.org" target="_blank">Geeks for Geeks</a></li>
+    </ul>
+
+    <!-- Self Declaration -->
+    <h2>Self Declaration</h2>
+    <p>
+        I hereby declare that the information provided above is true and correct
+        to the best of my knowledge.
+    </p>
+
+</div>
+
+<!-- JavaScript Section -->
+<script>
+    function showMarks() {
+        let e = document.getElementById("eng").value;
+        let m = document.getElementById("math").value;
+        let c = document.getElementById("cs").value;
+        let s = document.getElementById("es").value;
+
+        document.getElementById("marks").innerHTML =
+            "Marks Submitted Successfully.";
+    }
+
+    function calculatePercentage() {
+        let e = Number(document.getElementById("eng").value);
+        let m = Number(document.getElementById("math").value);
+        let c = Number(document.getElementById("cs").value);
+        let s = Number(document.getElementById("es").value);
+
+        let total = e + m + c + s;
+        let percentage = (total / 400) * 100;
+
+        document.getElementById("percent").innerHTML =
+            "Percentage Obtained: " + percentage.toFixed(2) + "%";
+    }
+</script>
+
+</body>
+</html>
